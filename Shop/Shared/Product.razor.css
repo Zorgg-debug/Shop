@@ -1,0 +1,18 @@
+﻿.info {
+    background: #C4C4C4;
+    width: 197px;
+}
+.padding-right-22{
+    padding-right: 22px;
+}
+.margin-bottom-6{
+    margin-bottom: 6px;
+}
+.info-about {
+    text-wrap: unset;
+    height: 38px;
+}
+
+.icon{
+    font-size:28px;
+}

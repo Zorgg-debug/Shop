@@ -1,0 +1,31 @@
+﻿@using Models
+<Modal Visible="@visible"
+       Footer="null">
+    <Form @ref="form" Model="@product"
+          Loading="@loading">
+        <FormItem>
+            <Input @bind-Value="@context.Name" />
+        </FormItem>
+        <FormItem>
+            <Input @bind-Value="@context.Category" />
+        </FormItem>
+        <FormItem>
+            <Input @bind-Value="@context.Price" />
+        </FormItem>
+        <FormItem>
+            <Input @bind-Value="@context.Description" />
+        </FormItem>
+        <FormItem>
+            <Image Width ="200px" Height="200px"/>
+            <Button Icon="@IconType.Outline.Upload" Type="@ButtonType.Primary"></Button>
+        </FormItem>
+        <FormItem>
+            <Button  OnClick="HandleOk" HtmlType="submit" Type="@ButtonType.Primary">
+                Подтвердить
+            </Button>
+            <Button OnClick="HandleCancel" HtmlType="button">
+                Отмена
+            </Button>
+        </FormItem>
+    </Form>
+</Modal>

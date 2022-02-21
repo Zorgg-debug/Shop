@@ -1,0 +1,65 @@
+﻿@inject MessageService _message
+<Layout>
+    <Header Style=" position: fixed; z-index: 1; width: 100%; background: #D8D8D8 ">
+        <Row>
+            <Col><Button OnClick="_ => OpenFormProduct(null)" Icon="@IconType.Outline.Plus" Type="@ButtonType.Primary" Size="@ButtonSize.Small"
+                         style="background: #4BBF73; margin-bottom: 10px; right:10px">
+                Добавить
+            </Button></Col>
+            <Col>
+            <Input AllowClear  Placeholder="Поиск" @bind-Value="@searchValue" />
+            </Col>
+        </Row>
+    </Header>
+    <Content Style="margin-top: 64px; ">
+        @if (products != null)
+        {
+            @foreach (var ctg in products.GroupBy(a => a.Category))
+                @if (ctg.Key != _category)
+                {
+                    <Divider>@ctg.Key</Divider>
+                    _category = ctg.Key;
+                    <Space Size=@(("8", "16")) Wrap>
+                        @foreach (var prd in products.Where(a => a.Category == ctg.Key))
+                        {
+                            <SpaceItem>
+                                <Product product="@prd" edit="@OpenFormProduct" ></Product>
+                            </SpaceItem>
+                        }
+                    </Space>
+                }
+            }
+            else
+            {
+                <Spin Size="large" />
+            }
+        <Affix OffsetBottom="20">
+            <Button Type="@ButtonType.Primary"
+                    Size="@ButtonSize.Default"
+                    Shape="@ButtonShape.Round"
+                    OnClick="openDrawer">
+                Категории
+            </Button>
+        </Affix>
+        <Formproduct product="@product" visible="@formProductVisible" close="CloseFormProduct"/>
+        <FormCategory category="@сategory" visible="@formCategoryVisible" close="CloseFormCategory" />
+        <Drawer Visible="@visibleDrawer" Placement="bottom" OnClose="_ => closeDrawer()">
+            <Button Icon="@IconType.Outline.Plus" Type="@ButtonType.Primary" Size="@ButtonSize.Small"
+                    OnClick="() => OpenFormCategory(null)"
+                    style="background: #4BBF73; margin-bottom: 10px">
+                Добавить
+            </Button>
+            <Space Size=@(("8", "16")) Wrap>
+                @foreach (var ctg in categories)
+                {
+                    <SpaceItem>
+                        <Category category="ctg" edit="@OpenFormCategory" />
+                    </SpaceItem>
+                }
+
+            </Space>
+
+        </Drawer>
+        </Content>
+</Layout>
+

@@ -1,0 +1,29 @@
+﻿@inject MessageService _message
+<div>
+    <Row Justify="space-around" Style="padding-top: 28px;
+            padding-left:15px; padding-right:15px; padding-bottom:28px;
+            width: 430px; height: 156px; background: #D8D8D8;">
+        <Col>
+        <div>
+            <img Src="images/image.png" />
+        </div>
+        </Col>
+        <Col>
+        <div class="info margin-bottom-6">
+            Имя
+        </div>
+        <div class="info margin-bottom-6">
+            Цена
+        </div>
+        <div class="info info-about">
+            Описание
+        </div>
+        </Col>
+        <Col>
+        <div class="margin-bottom-6"><a @onclick="(()=>Stop(product.Id))"><Icon Type="stop" Theme="outline" Style="font-size: 28px; color: #656565" /></a></div>
+        <div class="margin-bottom-6"><a @onclick="(()=>Edit(product))"><Icon Type="edit" Theme="outline" Style="font-size:28px; color: #656565" /></a></div>
+        <div><a @onclick="(()=>Delete(product.Id))"><Icon Type="delete" Theme="outline" Style="font-size:28px; color: #656565" /></a></div>
+        </Col>
+    </Row>
+
+</div>

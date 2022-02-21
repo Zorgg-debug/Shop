@@ -1,0 +1,21 @@
+﻿@using Models
+<Modal
+        Visible="@visible"
+       Footer="null" 
+        >
+    <Form @ref="form" Model="@category" 
+          Loading="@loading" 
+           >
+        <FormItem>
+            <Input @bind-Value="@context.Name" />
+        </FormItem>
+        <FormItem>
+            <Button OnClick="HandleOk" HtmlType="submit" Type="@ButtonType.Primary">
+                Подтвердить
+            </Button>
+            <Button OnClick="HandleCancel" HtmlType="button">
+                Отмена
+            </Button>
+        </FormItem>
+    </Form>
+</Modal>

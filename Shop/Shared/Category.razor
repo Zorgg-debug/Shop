@@ -1,0 +1,9 @@
+﻿@inject MessageService _message
+<div style="height: 37px; background: #D8D8D8; padding:5px;">
+    <Space Size=@(("3", "2"))>
+        <SpaceItem>@category.Name</SpaceItem>
+        <SpaceItem><a @onclick="(()=>Edit(category.Id))"><Icon Type="edit" Theme="outline" Style="font-size:24px; color: #656565" /></a></SpaceItem>
+        <SpaceItem><a @onclick="(()=>Stop(category.Id))"><Icon Type="stop" Theme="outline" Style="font-size: 24px; color: #656565" /></a></SpaceItem>
+        <SpaceItem><a @onclick="(()=>Delete(category.Id))"><Icon Type="Delete" Theme="outline" Style="font-size: 24px; color: #656565" /></a></SpaceItem>
+    </Space>
+</div>
