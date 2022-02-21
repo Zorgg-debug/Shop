@@ -1,0 +1,39 @@
+﻿@using Models
+<Modal Visible="@visible"
+       Footer="null">
+    <Form @ref="form" Model="@order"
+          Loading="@loading">
+        <FormItem>
+            <Input Disabled @bind-Value="@context.Id" />
+        </FormItem>
+        <FormItem>
+            <Input Disabled @bind-Value="personalInfo.Name" />
+        </FormItem>
+        <FormItem>
+            <Input Disabled @bind-Value="personalInfo.Number_phone" />
+        </FormItem>
+        <FormItem>
+            <Input Disabled @bind-Value="@context.Id" />
+        </FormItem>
+        <FormItem>
+            <Input Disabled @bind-Value="@context.Date_record" />
+        </FormItem>
+        <FormItem>
+            <Input  @bind-Value="@context.Adress" />
+        </FormItem>
+        <FormItem>
+            <Input @bind-Value="@context.Status" />
+        </FormItem>
+        <FormItem>
+            <Input @bind-Value="@context.Name" />
+        </FormItem>
+        <FormItem>
+            <Button OnClick="HandleOk" HtmlType="submit" Type="@ButtonType.Primary">
+                Подтвердить
+            </Button>
+            <Button OnClick="HandleCancel" HtmlType="button">
+                Отмена
+            </Button>
+        </FormItem>
+    </Form>
+</Modal>
